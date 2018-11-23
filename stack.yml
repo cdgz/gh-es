@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  gh-inventory:
+    image: gh-inventory:latest 
+    deploy:
+      restart_policy:
+        condition: none
+    secrets:
+      - GH_ACCESS_TOKEN
+      - ES_XPACK_PASSWORD 
+      - ES_XPACK_CA_CERT 
+
+secrets:
+  GH_ACCESS_TOKEN:
+    external: true
+  ES_XPACK_PASSWORD:
+    external: true
+  ES_XPACK_CA_CERT:
+    external: true
